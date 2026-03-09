@@ -54,15 +54,7 @@ client = Anthropic()
 # This function creates a connection to the database
 # @st.cache_resource means Streamlit remembers this connection
 # so it doesn't recreate it every time
-import os
-import subprocess
-from pathlib import Path
 
-# Auto-generate database if missing
-db_path = "agricultural_data.db"
-if not os.path.exists(db_path):
-    # Run setup_database.py to create it
-    subprocess.run(["python", "setup_database.py"], check=True)
 #@st.cache_resource
 def get_db_connection():
     """
